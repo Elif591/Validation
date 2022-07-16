@@ -15,6 +15,8 @@ import {
   EventService,
   EventRouteActivator,
   DurationPipe,
+  UpvoteComponent,
+  VoterService
 } from './event-details/index';
 import { NavComponent } from './nav/nav.component';
 import { CreateSessionComponent } from './event-details/createsesson/createsesson.component';
@@ -42,6 +44,7 @@ let jQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
+    UpvoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ let jQuery = window['$'];
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
 
     // NgAnimat
   ],
@@ -60,6 +63,7 @@ let jQuery = window['$'];
     AuthService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     { provide: JQ_TOKEN, useValue: jQuery },
+    VoterService,
   ],
   bootstrap: [AppComponent],
 })

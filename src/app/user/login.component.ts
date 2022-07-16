@@ -21,7 +21,7 @@ export class LoginComponent  {
   login(formValues:IUser){
 
      this.authService.loginUser(formValues.userName , formValues.password)
-    this.route.navigate(['user/profile'])
+    this.route.navigate(['./events'])
   }
 
 }
