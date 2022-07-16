@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div *ngFor="let event of object" class="col-md-6">
+        <img
+          [src]="event?.imageUrl"
+          width="100"
+          height="100"
+          [alt]="event?.name"
+          sizes="200"
+        />
+        <div class="row">
+          <div class="">
+            <h2>{{ event?.name | uppercase }}</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <strong>Date:</strong> {{ event?.date | date: "shortDate" }}
+            </div>
+            <div><strong>Time:</strong> {{ event?.time }}</div>
+            <div>
+              <strong>Price:</strong> {{ event?.price | currency: "USD" }}
+            </div>
+          </div>
+          <address>
+            <strong>Address:</strong><br />
+            {{ event?.location?.address }}<br />
+            {{ event?.location?.city }}, {{ event?.location?.country }}
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
