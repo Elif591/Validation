@@ -8,7 +8,7 @@ import { ErrorsComponent } from './errors/errors.component';
 import { EventResolver } from './event-resolver.sevice';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { LocationValidator } from './createevent/location-validator-directive';
 import { JQ_TOKEN } from './jQuery.service';
 import {
   EventDetailsComponent,
@@ -45,6 +45,7 @@ let jQuery = window['$'];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
+    LocationValidator,
   ],
   imports: [
     BrowserModule,

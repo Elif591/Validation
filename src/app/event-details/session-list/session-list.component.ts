@@ -9,7 +9,7 @@ import { VoterService } from '../voter.service';
   styleUrls: ['./session-list.component.css'],
 })
 export class SessionListComponent implements OnChanges {
-  constructor(private auth: AuthService , private voterService:VoterService) {}
+  constructor(public auth: AuthService , private voterService:VoterService) {}
 
   @Input() sessions: ISession[] | undefined;
   @Input() filterBy: string | undefined;
