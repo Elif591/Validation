@@ -13,16 +13,15 @@ export class UsersComponent {
   title = 'Validation';
   object:IEvent[] | undefined
 
-  constructor(private router:Router , private eventService:EventService ){
+  constructor(private route:Router , private eventService:EventService ){
 
   }
     ngOnInit() {
      this.object = this.eventService.getEventss()
   }
 
-
   cancel(){
-    this.router.navigate(['/events'])
+    this.route.navigate(['/events'])
   }
 
 
