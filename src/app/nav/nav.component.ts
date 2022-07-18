@@ -9,18 +9,20 @@ import { EventService } from '../event-details/shared/event.services';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
+
   navbarCollapsed: boolean = true;
   searchTerm: string = '';
   foundSessions: ISession[];
   constructor(public auth: AuthService, private eventService: EventService) {}
 
   searchSessions(searchTerm: string) {
-    debugger;
     this.eventService.searchSessions(searchTerm).subscribe((sessions) => {
       this.foundSessions = sessions;
       console.log(this.foundSessions);
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 }

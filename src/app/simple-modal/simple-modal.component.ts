@@ -1,3 +1,4 @@
+import { JQ_TOKEN } from '../jQuery.service';
 import {
   Component,
   OnInit,
@@ -6,7 +7,7 @@ import {
   ElementRef,
   Inject,
 } from '@angular/core';
-import { JQ_TOKEN } from '../jQuery.service';
+
 
 @Component({
   selector: 'simple-modal',
@@ -14,13 +15,18 @@ import { JQ_TOKEN } from '../jQuery.service';
   styleUrls: ['./simple-modal.component.css'],
 })
 export class SimpleModalComponent implements OnInit {
-  constructor() {}
   @Input() title: string;
   @Input() elementId: string;
+  @Input() closeOnBodyClick : string;
   @ViewChild('modalcontainer') containerEl: ElementRef;
+
+  constructor(@Inject(JQ_TOKEN) private $: any) {}
   ngOnInit(): void {}
 
   closeModal() {
-    //$().modal('hide');
+    if(this.closeOnBodyClick.toLocaleLowerCase() === "true"){
+     this.$(this.containerEl.nativeElement).modal('show');
+    }
+
   }
 }

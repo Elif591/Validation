@@ -21,7 +21,6 @@ export class EventService {
   }
 
   saveEvent(event: IEvent) {
-    debugger;
     event.id = 999;
     event.sessions = [];
     ARRAY.push(event);
