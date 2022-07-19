@@ -5,15 +5,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { CreateeventComponent } from './createevent/createevent.component';
 import { ErrorsComponent } from './errors/errors.component';
-import { EventResolver } from './event-resolver.sevice';
+import { EventListResolver } from './event-resolver.sevice';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocationValidator } from './createevent/location-validator-directive';
 import { JQ_TOKEN } from './jQuery.service';
+import { EventResolver } from './createevent/event-resolver.service';
 import {
   EventDetailsComponent,
   EventService,
-  EventRouteActivator,
   DurationPipe,
   UpvoteComponent,
   VoterService
@@ -25,6 +25,7 @@ import { CollapsibleWellComponent } from './collapsible-well/collapsible-well.co
 import { SimpleModalComponent } from './simple-modal/simple-modal.component';
 import { ModalTriggerDirective } from './modal-trigger.directive/modal-trigger.directive.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 
@@ -54,12 +55,13 @@ let jQuery = window['$'];
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
 
     // NgAnimat
   ],
   providers: [
     EventService,
-    EventRouteActivator,
+    EventListResolver,
     EventResolver,
     AuthService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },

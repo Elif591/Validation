@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, NgIterable, Output } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IEvent } from './event-details/shared/event.model';
 import { EventService } from './event-details/shared/event.services';
 import { Observable } from 'rxjs';
@@ -11,17 +11,18 @@ import { Observable } from 'rxjs';
 })
 export class UsersComponent {
   title = 'Validation';
-  object:IEvent[] | undefined
+  events:IEvent[] | undefined
 
-  constructor(private route:Router , private eventService:EventService ){
+  constructor(private router:Router , private route:ActivatedRoute, private eventService:EventService ){
 
   }
     ngOnInit() {
-     this.object = this.eventService.getEventss()
+      this.events = this.route.snapshot.data['events']
   }
 
+
   cancel(){
-    this.route.navigate(['/events'])
+    this.router.navigate(['/events'])
   }
 
 

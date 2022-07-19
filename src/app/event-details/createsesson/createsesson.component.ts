@@ -41,7 +41,6 @@ export class CreateSessionComponent implements OnInit {
   }
 
   private restrictedWords(words: any) {
-    debugger;
     return (control: FormControl) => {
       if (!words) return null;
       var invalidWords = words

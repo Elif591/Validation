@@ -15,13 +15,9 @@
     height: 30px;
 }
 .hoverwell:hover {
-  background-color: #485563;
   cursor: pointer;
 }
 
-.container {
-  padding-top: 10px;
-}
 
 .pointable {
   cursor: pointer;

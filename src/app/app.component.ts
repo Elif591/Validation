@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EventService } from './event-details/shared/index';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from './user/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  events: any;
-  constructor(
-    private eventService: EventService,
-    private route: ActivatedRoute
-  ) {}
+ constructor(private auth : AuthService){
+
+ }
+
 
   ngOnInit() {
-    this.events = this.route.snapshot.data['events'];
+    this.auth.checkAuthenticationStatus();
   }
 
-  parentFunction(data: any) {
-    console.log(data);
-  }
+
 }
